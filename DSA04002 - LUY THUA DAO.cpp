@@ -2,57 +2,39 @@
 
 using namespace std;
 typedef long long ll;
-#define pb push_back 
 #define fort(i,a,b) for(int i=a;i<b;++i)
 #define forg(i,a,b) for(int i=a;i>b;--i)
 #define fort1(i,a,b) for(int i=a;i<=b;++i)
 #define forg1(i,a,b) for(int i=a;i>=b;--i)
 #define t() int t; cin >> t; while(t--)
+#define pb push_back
 #define faster() cin.tie(0); ios_base::sync_with_stdio(false); cout.tie(0);
 
+ll mod = 1e9+7;
 
-
+ll Pow(ll n,ll k){
+	if(k==0) return 1;
+	if(k==1) return n%mod;
+	ll tmp=Pow(n,k/2);
+	if(k & 1) return tmp%mod * tmp%mod * n%mod;
+	return tmp%mod * tmp%mod;
+}
 int main(){
-	
 	t(){
-		ll n;
+		string n,r;
 		cin >> n;
-		ll a[n];
-		multiset<ll> m;
-		fort(i,0,n) {
-			cin >> a[i];
-			m.insert(a[i]);
-		}ll sum=0;
-		while(m.size()!=1){
-			ll x=*m.begin();
-			m.erase(m.begin());
-			ll y=*m.begin();
-			m.erase(m.begin());
-			sum+=x+y;
-			m.insert(x+y);
-		}cout << sum << endl;
+		r=n;
+		reverse(r.begin(),r.end());
+		cout << Pow(stoll(n),stoll(r)) %mod << endl;
+		
+		
+		
 	}
+	
+
+
 	
 	
 }
-		
-		
-		
-		
-	
-	
-	
-	
-		
-		
-	
-	
-	
-
-
-
-
-
-
 
 

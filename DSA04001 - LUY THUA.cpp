@@ -12,10 +12,10 @@ typedef long long ll;
 
 ll mod = 1e9+7;
 
-ll pow(ll n,ll k){
+ll Pow(ll n,ll k){
 	if(k==0) return 1;
 	if(k==1) return n%mod;
-	ll tmp=pow(n,k/2);
+	ll tmp=Pow(n,k/2);
 	if(k & 1) return tmp%mod * tmp%mod * n%mod;
 	return tmp%mod * tmp%mod;
 }
@@ -23,7 +23,7 @@ int main(){
 	t(){
 		ll n,k;
 		cin >> n >> k;
-		cout << pow(n,k) << endl;
+		cout << Pow(n,k)%mod << endl;
 		
 		
 		
